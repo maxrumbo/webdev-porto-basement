@@ -1,0 +1,418 @@
+/* Definisi Variabel Warna (Ganti nilai di sini untuk mengubah seluruh skema warna) */
+:root {
+  --sidebar-bg: white;
+  --welcome-bg: #1c1c1c;
+  --main-bg: #d3d3d3;
+  --card-bg: #4a4a4a;
+  --footer-bg: #1c1c1c;
+  
+  --welcome-font: white;
+  --sidebar-font: black;
+  --card-font: white;
+  --link-hover-bg: #e0e0e0;
+
+  --accent-color: #00aaff;  /* Warna aksen untuk link aktif */
+  --thumb-color: var(--card-bg); /* Default thumb color */
+  --border-color: #555;
+}
+
+/* Overall page style */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text-color);
+    margin: 0;
+    padding: 0;
+    background-image: url('images/bg web 1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Main titles */
+h1 {
+    color: var(--welcome-font);
+}
+h2 {
+    color: var(--card-font);
+}
+
+/* Welcome Section */
+#welcome {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--welcome-bg);
+    color: var(--welcome-font);
+}
+
+/* Navigation menu styling */
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: var(--sidebar-bg);
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 180px;
+    border-right: 1px solid var(--border-color);
+    z-index: 1000;
+    transition: width 0.3s ease;
+}
+/* Gaya saat sidebar mengecil */
+nav.collapsed {
+    width: 60px;
+}
+
+.nav-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+.nav-toggle {
+    background: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.3s linear;
+}
+
+/* Hamburger icon style */
+.hamburger {
+    width: 25px;
+    height: 3px;
+    background-color: var(--sidebar-font);
+    display: block;
+    transition: all 0.3s linear;
+}
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--sidebar-font);
+    transition: all 0.3s linear;
+}
+.hamburger::before {
+    transform: translateY(-8px);
+}
+.hamburger::after {
+    transform: translateY(5px);
+}
+
+/* Nav links */
+.nav-links {
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s linear;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+}
+.nav-links.show-links {
+    height: auto;
+    overflow: visible;
+}
+.nav-links a {
+    display: block;
+    text-align: left;
+    font-size: 1rem;
+    color: var(--sidebar-font);
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s linear;
+    width: 100%;
+}
+.nav-links a:hover {
+    background-color: var(--link-hover-bg);
+}
+
+/* Gaya untuk tautan yang aktif (biru) */
+.nav-links a.active-link {
+    color: var(--accent-color);
+    background-color: transparent;
+}
+
+
+/* Main content sections */
+main {
+    margin-left: 180px;
+    transition: margin-left 0.3s ease;
+    background-color: var(--main-bg); /* Warna latar belakang body */
+}
+/* Margin saat sidebar mengecil */
+main.content-shifted {
+    margin-left: 60px;
+}
+main section {
+    padding: 60px 40px;
+    background-color: var(--card-bg);
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+main section h2 {
+    color: var(--card-font);
+    text-align: center;
+}
+main section p {
+    text-align: justify !important;
+    color: var(--card-font);
+}
+
+/* About Me section */
+#profile {
+    background-color: var(--card-bg);
+    color: var(--card-font);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    margin: 20px auto;
+    padding: 60px 40px;
+}
+#profile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+/* Experience & Certification styling */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+.card strong, .card p {
+    color: var(--card-font);
+}
+
+/* Experience & Certification styling */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    color: var(--card-font); /* Pastikan kartu punya warna teks default */
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+/* Memastikan semua teks di dalam kartu berwarna putih */
+.card p,
+.card strong,
+.card li,
+.card a {
+    color: var(--card-font) !important;
+}
+
+/* Contact Section */
+.contact-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--card-font);
+    font-size: 18px;
+}
+.contact-item:hover { color: var(--accent-color); }
+.contact-item span {
+    display: none;
+}
+.contact-item i {
+    font-size: 30px;
+    width: auto;
+    text-align: center;
+    margin-right: 0;
+}
+
+/* Profile picture */
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--welcome-font);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* List item defaults */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    margin-bottom: 15px;
+}
+
+/* Nav header styling for alignment */
+nav .nav-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+/* Styling untuk tautan Home yang independen */
+.home-link {
+    display: block;
+    text-align: left;
+    font-size: 1rem;
+    color: var(--sidebar-font);
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s linear;
+}
+.home-link:hover {
+    background-color: var(--link-hover-bg);
+}
+.home-link i {
+    font-size: 1.5rem;
+}
+.home-link.active-link {
+    color: var(--accent-color);
+}
+/* Home Link (Posisi di atas hamburger) */
+.home-link {
+    display: block;
+    text-align: left;
+    font-size: 1rem;
+    color: var(--sidebar-font);
+    text-decoration: none;
+    padding: 0.75rem 0;
+    transition: all 0.3s linear;
+}
+.home-link i {
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}
+.home-link:hover {
+    background-color: var(--link-hover-bg);
+}
+.home-link.active-link {
+    color: var(--accent-color);
+}
+
+/* Nav header (Berisi hamburger) */
+.nav-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+/* Nav toggle */
+.nav-toggle {
+    background: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.3s linear;
+    padding-left: 1rem;
+}
+@media (max-width: 768px) {
+    /* Sembunyikan sidebar di layar kecil */
+    nav {
+        display: none;
+        position: static;
+        height: auto;
+        width: 100%;
+    }
+
+    /* Tampilkan tombol hamburger saja */
+    .nav-header {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: var(--welcome-bg);
+        padding: 10px;
+        z-index: 1001;
+    }
+    
+    /* Atur main content agar tidak terpengaruh oleh margin */
+    main {
+        margin-left: 0;
+    }
+
+    /* Tampilkan menu saat dibuka */
+    nav.show-menu {
+        display: block;
+    }
+    .contact-item span {
+        display: inline;
+    }
+}
+
+/* Styling Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--thumb-color);
+    border-radius: 4px;
+    border: 2px solid transparent;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+html, body {
+    scrollbar-color: var(--thumb-color) transparent;
+    scrollbar-width: thin;
+}
+/* Pastikan semua teks di dalam kartu berwarna putih */
+.card p,
+.card strong,
+.card li {
+    color: var(--card-font);
+}
+
+/* Pastikan link di dalam kartu juga berwarna putih */
+.card a {
+    color: var(--card-font);
+}
+
